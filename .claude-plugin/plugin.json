@@ -1,0 +1,18 @@
+{
+  "name": "c2c-img",
+  "version": "0.3.0",
+  "description": "Built-in image generation and editing for Claude Code, powered by your local Codex (ChatGPT) image_gen. No API key needed.",
+  "author": {
+    "name": "actionow"
+  },
+  "homepage": "https://github.com/actionow-ai/c2c_img",
+  "repository": "https://github.com/actionow-ai/c2c_img",
+  "license": "MIT",
+  "keywords": [
+    "image",
+    "image-generation",
+    "codex",
+    "gpt-image",
+    "生图"
+  ]
+}
