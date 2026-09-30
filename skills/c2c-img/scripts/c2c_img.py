@@ -38,7 +38,7 @@ import tempfile
 import threading
 import time
 
-VERSION = "0.3.0"
+VERSION = "0.4.0"
 IS_WIN = os.name == "nt"
 TEXT = {"text": True, "encoding": "utf-8", "errors": "replace"}
 APP_BUNDLED_CLIS = [

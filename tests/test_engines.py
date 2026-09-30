@@ -15,7 +15,7 @@ import time
 import unittest
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SCRIPT = os.path.join(HERE, "..", "skills", "c2c_img", "scripts", "c2c_img.py")
+SCRIPT = os.path.join(HERE, "..", "skills", "c2c-img", "scripts", "c2c_img.py")
 FAKE = os.path.join(HERE, "fake_codex.py")
 IS_WIN = os.name == "nt"
 

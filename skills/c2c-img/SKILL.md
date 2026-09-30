@@ -1,14 +1,22 @@
 ---
-name: c2c_img
+name: c2c-img
 description: Built-in image generation and editing for Claude, powered by the user's local Codex (ChatGPT) image_gen tool, with no API key needed. Use it whenever the user wants a picture made or changed, such as a request to draw, generate, create, render or design an image, photo, illustration, poster, banner, cover, wallpaper, avatar, icon, logo concept, sticker, product shot, mockup, meme or transparent cutout, or to edit, retouch or restyle an image, change or remove its background, or make it more X. Also use it when they say 画/画一张/生成图片/生图/出图/做张海报/配图/头像/壁纸/改图/P图/抠图/换背景/再来一张. Use it proactively when a task needs a bitmap asset (hero image, placeholder photo, game sprite), even if the user never mentions Codex or this skill. Don't use it for charts, diagrams, flowcharts or UI that should be built as code or SVG.
+license: MIT
+compatibility: Requires the Codex CLI signed in with a ChatGPT account, and Python 3.9+. Built for Claude Code; works in any agent that can run shell commands and view images.
+metadata:
+  author: actionow
+  version: "0.4.0"
 ---
 
-# c2c_img: image generation that feels built in
+# c2c-img: image generation that feels built in
 
 To the user, you can simply make images. Behind the scenes, `scripts/c2c_img.py` has Codex's
 `image_gen` render your prompt exactly as written, and you do the art direction. **The user should
 feel that they asked for an image and got one.** Don't mention Codex, scripts, JSON, or your
 prompt unless they ask or something breaks.
+
+> **Other agents:** tool names below are Claude Code's. Use your own equivalents: a shell tool for
+> the script, an image-viewing tool for checking the result, and a file-sharing tool (if any) for showing it.
 
 ## The loop
 

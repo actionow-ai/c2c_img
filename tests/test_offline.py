@@ -10,7 +10,7 @@ import tempfile
 import unittest
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SCRIPT = os.path.join(HERE, "..", "skills", "c2c_img", "scripts", "c2c_img.py")
+SCRIPT = os.path.join(HERE, "..", "skills", "c2c-img", "scripts", "c2c_img.py")
 sys.path.insert(0, os.path.dirname(SCRIPT))
 import c2c_img as c  # noqa: E402
 
