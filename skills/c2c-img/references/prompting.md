@@ -85,6 +85,19 @@ hierarchy (title, then subtitle, then date), and leave clear space for the text.
 the key components. Keep text minimal and real. If the user needs working UI, build it as code
 instead.
 
+**Photo restyle (cartoon, pixel art, anime, watercolor, and so on).** Pass the photo with
+`-i` and describe the whole redraw. Keep the people recognizable:
+
+```text
+Use case: style-transfer
+Primary request: Edit Image 1 — redraw the entire photo as <style>.
+Keep: the same people with recognizable faces, expressions, hairstyles and outfits; the same pose,
+framing and background layout.
+Style: <e.g. pixel art — visible square pixels, limited ~32-color palette, clean dark 1-px
+outlines, 16-bit retro game look | anime — cel shading, clean line art, soft pastel light>
+Constraints: no text, no watermark
+```
+
 **Sticker or transparent cutout.** Use `-t` and write "isolated on a fully transparent
 background". Mention an outline ("thick white die-cut border") for stickers. Check the edges
 when you review.

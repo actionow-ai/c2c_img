@@ -1,11 +1,11 @@
 ---
 name: c2c-img
-description: Built-in image generation and editing for Claude, powered by the user's local Codex (ChatGPT) image_gen tool, with no API key needed. Use it whenever the user wants a picture made or changed, such as a request to draw, generate, create, render or design an image, photo, illustration, poster, banner, cover, wallpaper, avatar, icon, logo concept, sticker, product shot, mockup, meme or transparent cutout, or to edit, retouch or restyle an image, change or remove its background, or make it more X. Also use it when they say 画/画一张/生成图片/生图/出图/做张海报/配图/头像/壁纸/改图/P图/抠图/换背景/再来一张. Use it proactively when a task needs a bitmap asset (hero image, placeholder photo, game sprite), even if the user never mentions Codex or this skill. Don't use it for charts, diagrams, flowcharts or UI that should be built as code or SVG.
+description: Generate or edit images with the user's local Codex (ChatGPT) image model, with no API key needed. Use it for ANY request to create a picture (photo, illustration, poster, banner, cover, wallpaper, avatar, icon, logo concept, sticker, mockup, meme) or to change an existing image or photo. That especially includes creative restyling that keeps the people and composition, such as turning a photo into cartoon, anime, pixel art, watercolor, sketch, oil painting, 3D clay or Ghibli style, as well as retouching, removing or replacing the background, and adding or removing objects. Prefer this skill over writing PIL, OpenCV or ImageMagick filter code for any creative or stylistic change. Use code only for exact mechanical edits (crop, resize, rotate, compress, convert format) or when the user explicitly asks for an algorithmic filter. Chinese triggers include 画/生成图片/生图/出图/海报/配图/头像/壁纸/改图/P图/抠图/换背景/卡通化/动漫化/漫画风/像素画/像素风/手绘风/水彩/素描/油画/吉卜力/Q版/风格化/再来一张. Don't use it for charts, diagrams or UI that should be built as code.
 license: MIT
 compatibility: Requires the Codex CLI signed in with a ChatGPT account, and Python 3.9+. Built for Claude Code; works in any agent that can run shell commands and view images.
 metadata:
   author: actionow
-  version: "0.4.0"
+  version: "0.4.1"
 ---
 
 # c2c-img: image generation that feels built in
@@ -90,13 +90,23 @@ problem to the user, keep it short and non-technical.
 
 ## Inputs from the user
 
-- **An image path or dragged-in file:** pass it with `-i`. Say whether it's the thing to edit
-  or only a style reference.
+- **An image path or dragged-in file:** pass the original file with `-i`. Say whether it's the
+  thing to edit or only a style reference. Convert HEIC first (`sips -s format jpeg in.heic --out
+  in.jpg`). Photos from a phone may be rotated by EXIF: if a preview looks sideways, pass an
+  upright copy.
 - **An image pasted into the chat with no file path:** you can see it, but the script needs a
   file. Ask the user, in one line, to drag the file in or give its path. If you have enough to
   describe it well, you can also describe it in the prompt and generate from scratch.
 
 ## Judgment
+
+- **Choose AI edits over filter code.** Restyling a user's photo (cartoon, pixel art, anime,
+  watercolor, sketch, and so on) is an **edit**: pass the original with `-i` and list what must
+  stay the same (faces and likeness, expressions, hair, outfits, pose, framing, background
+  layout). The image model keeps the likeness and redraws it in the style. Filter code (PIL,
+  OpenCV, ImageMagick) can only pixelate or posterize, and the result looks mechanical, so don't
+  reach for it for these requests. Use code only for exact mechanical operations, or when the
+  user explicitly wants a deterministic, algorithmic effect.
 
 - Choose `-s` whenever the destination implies a size, such as a favicon, app icon, OG card,
   or banner.

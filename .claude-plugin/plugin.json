@@ -1,6 +1,6 @@
 {
   "name": "c2c-img",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Built-in image generation and editing for Claude Code, powered by your local Codex (ChatGPT) image_gen. No API key needed.",
   "author": {
     "name": "actionow"
